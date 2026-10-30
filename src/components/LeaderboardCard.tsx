@@ -89,11 +89,11 @@ export function LeaderboardCard({ title, description, items, metric }: Props) {
                         {t.location}
                       </p>
                     )}
-                    <p className="truncate text-xs text-neutral-600">
+                    {/* <p className="truncate text-xs text-neutral-600">
                       {metric === "revenue"
                         ? rupiah.format(t.totalSales ?? 0)
                         : `${(t.transactionCount ?? 0).toLocaleString("id-ID")} transaksi`}
-                    </p>
+                    </p> */}
                   </div>
 
                   <span className="text-sm font-semibold text-neutral-950 tabular-nums">

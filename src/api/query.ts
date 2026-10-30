@@ -8,7 +8,7 @@ export type LeaderboardParams = {
   endDate?: string;
 };
 
-export function useLeaderboard(params: LeaderboardParams = { startDate: "2026-09-01", endDate: "2026-09-07" }) {
+export function useLeaderboard(params: LeaderboardParams = { startDate: "2026-10-31", endDate: "2026-11-01" }) {
   return useQuery<LeaderboardResponse>({
     queryKey: ["leaderboard", params],
     queryFn: async () => {
