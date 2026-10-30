@@ -3,11 +3,20 @@ import type { LeaderboardResponse } from "../types/types";
 
 const URL_ = import.meta.env.VITE_LEADERBOARD_URL as string;
 
-export function useLeaderboard() {
+export type LeaderboardParams = {
+  startDate?: string;
+  endDate?: string;
+};
+
+export function useLeaderboard(params: LeaderboardParams = { startDate: "2026-09-01", endDate: "2026-09-07" }) {
   return useQuery<LeaderboardResponse>({
-    queryKey: ["leaderboard"],
+    queryKey: ["leaderboard", params],
     queryFn: async () => {
-      const res = await fetch(URL_, { cache: "no-store" });
+      const url = new URL(URL_, window.location.origin);
+      if (params.startDate) url.searchParams.set("startDate", params.startDate);
+      if (params.endDate) url.searchParams.set("endDate", params.endDate);
+
+      const res = await fetch(url.toString(), { cache: "no-store" });
       if (!res.ok) throw new Error(`Leaderboard fetch failed: ${res.status}`);
       return res.json();
     },

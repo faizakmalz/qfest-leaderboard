@@ -26,10 +26,10 @@ const initials = (name: string) =>
     .toUpperCase();
 
 const valueOf = (t: Tenant, m: Metric) =>
-  m === "revenue" ? t.totalSales : t.transactionCount;
+  m === "revenue" ? t.totalSales ?? 0 : t.transactionCount ?? 0;
 
 export function LeaderboardCard({ title, description, items, metric }: Props) {
-  // persentase = porsi tenant terhadap total top-N yang ditampilkan
+  // Hitung fallback total jika backend tidak menyediakan transactionPercentage
   const total = items.reduce((sum, t) => sum + valueOf(t, metric), 0);
 
   return (
@@ -44,7 +44,13 @@ export function LeaderboardCard({ title, description, items, metric }: Props) {
       ) : (
         <ol>
           {items.map((t, i) => {
-            const share = total ? (valueOf(t, metric) / total) * 100 : 0;
+            const percentage =
+              typeof t.transactionPercentage === "number"
+                ? t.transactionPercentage
+                : total
+                  ? (valueOf(t, metric) / total) * 100
+                  : 0;
+
             const first = i === 0;
 
             return (
@@ -78,15 +84,20 @@ export function LeaderboardCard({ title, description, items, metric }: Props) {
                     <p className="truncate text-sm font-medium text-neutral-950">
                       {t.name}
                     </p>
+                    {t.location && (
+                      <p className="truncate text-xs text-neutral-500">
+                        {t.location}
+                      </p>
+                    )}
                     <p className="truncate text-xs text-neutral-600">
                       {metric === "revenue"
-                        ? rupiah.format(t.totalSales)
-                        : `${t.transactionCount.toLocaleString("id-ID")} transaksi`}
+                        ? rupiah.format(t.totalSales ?? 0)
+                        : `${(t.transactionCount ?? 0).toLocaleString("id-ID")} transaksi`}
                     </p>
                   </div>
 
                   <span className="text-sm font-semibold text-neutral-950 tabular-nums">
-                    {share.toFixed(2)}%
+                    {percentage.toFixed(2)}%
                   </span>
                 </div>
               </li>

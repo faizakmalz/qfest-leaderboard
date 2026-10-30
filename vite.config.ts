@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
     proxy: {
-      "/api": { target: "https://api-pos-staging.channelq.id", changeOrigin: true },
+      "/api": { target: "https://api-pos.channelq.id", changeOrigin: true },
     },
   },
 });
