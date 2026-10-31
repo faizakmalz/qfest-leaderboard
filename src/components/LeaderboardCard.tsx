@@ -25,6 +25,7 @@ const valueOf = (t: Tenant, m: Metric) =>
 export function LeaderboardCard({ title, description, items, metric }: Props) {
   // Hitung fallback total jika backend tidak menyediakan transactionPercentage
   const total = items.reduce((sum, t) => sum + valueOf(t, metric), 0);
+  console.log(items, 'asdasd')
 
   return (
     <section className="overflow-hidden rounded-lg bg-white">

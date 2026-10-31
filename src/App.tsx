@@ -77,13 +77,21 @@ export default function App() {
           <LeaderboardCard
             title="Transaction Champion"
             description="Tenant dengan transaksi terbanyak selama QFEST."
-            items={data?.topByTransactionCount?.slice(0, TOP_N) ?? []}
+            items={data?.topByTransactionCount?.slice(0, TOP_N).sort((n) => Number(n.transactionPercentage) ) ?? []}
             metric="transactions"
           />
           <LeaderboardCard
             title="Revenue Champion"
             description="Tenant dengan total omzet tertinggi selama QFEST."
-            items={data?.topByRevenue?.slice(0, TOP_N) ?? []}
+            items={
+              data?.topByRevenue
+                ?.slice(0, TOP_N)
+                .sort(
+                  (a, b) =>
+                    Number(b.transactionPercentage) -
+                    Number(a.transactionPercentage)
+                ) ?? []
+            }
             metric="revenue"
           />
         </div>
