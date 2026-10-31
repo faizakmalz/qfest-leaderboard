@@ -29,9 +29,9 @@ export function LeaderboardCard({ title, description, items, metric }: Props) {
 
   return (
     <section className="overflow-hidden rounded-lg bg-white">
-      <div className="px-6 pt-8 pb-4">
+      <div className="px-6 pt-4 pb-4">
         <h2 className="text-xl font-semibold text-neutral-950">{title}</h2>
-        <p className="mt-2 text-neutral-600">{description}</p>
+        <p className="mt-1 text-neutral-600">{description}</p>
       </div>
 
       {items.length === 0 ? (
@@ -54,7 +54,7 @@ export function LeaderboardCard({ title, description, items, metric }: Props) {
                 className={`px-6 ${first ? "bg-[#fdf5e6]" : ""}`}
               >
                 <div
-                  className={`flex items-center gap-3 py-4 ${
+                  className={`flex items-center gap-3 py-3 ${
                     i < items.length - 1 ? "border-b border-neutral-200" : ""
                   }`}
                 >

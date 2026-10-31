@@ -33,24 +33,24 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#f5f5f5]">
       {/* Header */}
-      <header className="relative h-[300px] overflow-hidden bg-[linear-gradient(90deg,#edf2ff_0%,#e8eeff_50%,#f3f6ff_100%)]">
+      <header className="relative h-[180px] overflow-hidden bg-[linear-gradient(90deg,#edf2ff_0%,#e8eeff_50%,#f3f6ff_100%)]">
         {/* lingkaran dekoratif (koordinat dari design 1440px) */}
         <div className="absolute -top-[55px] -left-[55px] size-[310px] rounded-full bg-gradient-to-br from-white/95 to-[#f3f6ff]/80 ring-1 ring-white" />
         <div className="absolute top-[234px] left-[248px] size-[126px] rounded-full bg-white/75 ring-1 ring-[#dfe7ff]" />        <div className="absolute -top-[34px] right-[182px] size-[98px] rounded-full bg-[#e9efff]/70 ring-1 ring-white/70" />
         <div className="absolute top-[60px] -right-[90px] size-[290px] rounded-full bg-gradient-to-bl from-white/60 via-white/30 to-[#e8eeff]/20 ring-1 ring-[#dfe7ff]/60" />
 
         {/* medal: ujung ribbon terpotong di bawah header, seperti di design */}
-        <img src="/assets/medal.svg" alt="" className="absolute top-[112px] left-[88px] hidden w-[152px] max-w-none lg:block" />
+        <img src="/assets/medal.svg" alt="" className="absolute top-[10px] left-[88px] hidden w-[152px] max-w-none lg:block" />
         <img src="/assets/trophy.svg" alt="" className="absolute right-[95px] bottom-0 hidden w-[165px] max-w-none lg:block" />
 
-        <div className="relative flex h-full flex-col items-center px-6 pt-[88px] text-center">
+        <div className="relative flex h-full flex-col items-center px-6 pt-[40px] text-center">
           <h1 className="text-[32px] lg:text-4xl leading-[38px] font-bold text-neutral-950">
             QFEST Tenant Leaderboard
           </h1>
           <p className="mt-3 text-neutral-600">
             Siapa yang memimpin kompetisi penjualan QFEST? Lihat peringkat tenant terbaik di sini.
           </p>
-          <div className="mt-12 flex items-center gap-4">
+          <div className="mt-4 flex items-center gap-4">
             <img src="/assets/logo-channelq.svg" alt="Channel" className="h-5" />
             <img src="/assets/qfest-logo.svg" alt="QFEST" className="h-11" />
           </div>
@@ -59,7 +59,7 @@ export default function App() {
 
       <main className="mx-auto max-w-[964px] px-4 pb-16">
         {/* Last update */}
-        <div className="mt-6 flex items-center justify-between rounded-lg bg-white px-6 py-5">
+        <div className="mt-4 flex items-center justify-between rounded-lg bg-white px-6 py-4">
           <div>
             <h2 className="text-xl font-semibold text-neutral-950">Last update</h2>
             <p className="mt-1 text-neutral-600">
@@ -73,7 +73,7 @@ export default function App() {
         </div>
 
         {/* Leaderboards */}
-        <div className="mt-6 grid gap-6 md:grid-cols-2">
+        <div className="mt-4 grid gap-6 md:grid-cols-2">
           <LeaderboardCard
             title="Transaction Champion"
             description="Tenant dengan transaksi terbanyak selama QFEST."

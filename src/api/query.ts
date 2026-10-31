@@ -20,8 +20,8 @@ export function useLeaderboard(params: LeaderboardParams = { startDate: "2026-10
       if (!res.ok) throw new Error(`Leaderboard fetch failed: ${res.status}`);
       return res.json();
     },
-    refetchInterval: 5 * 60 * 1000,
+    refetchInterval: 2 * 60 * 1000,
     refetchIntervalInBackground: true, // layar event bisa tidak fokus
-    staleTime: 5 * 60 * 1000,
+    staleTime: 2 * 60 * 1000,
   });
 }
