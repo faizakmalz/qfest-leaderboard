@@ -88,8 +88,8 @@ export default function App() {
                 ?.slice(0, TOP_N)
                 .sort(
                   (a, b) =>
-                    Number(b.transactionPercentage) -
-                    Number(a.transactionPercentage)
+                    Number(b.totalSalesPercentage) -
+                    Number(a.totalSalesPercentage)
                 ) ?? []
             }
             metric="revenue"

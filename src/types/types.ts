@@ -6,6 +6,7 @@ export type Tenant = {
   totalSales?: number;
   transactionCount?: number;
   transactionPercentage?: number;
+  totalSalesPercentage?: number;
 };
 
 export type LeaderboardResponse = {

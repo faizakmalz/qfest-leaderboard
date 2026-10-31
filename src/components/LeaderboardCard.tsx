@@ -39,13 +39,17 @@ export function LeaderboardCard({ title, description, items, metric }: Props) {
       ) : (
         <ol>
           {items.map((t, i) => {
-            const percentage =
-              typeof t.transactionPercentage === "number"
+            const percentage = metric == 'transactions' ? typeof t.transactionPercentage === "number"
                 ? t.transactionPercentage
                 : total
                   ? (valueOf(t, metric) / total) * 100
+                  : 0
+              : typeof t.totalSalesPercentage === "number"
+                ? t.totalSalesPercentage
+                : total
+                  ? (valueOf(t, metric) / total) * 100
                   : 0;
-
+              
             const first = i === 0;
 
             return (
