@@ -58,7 +58,7 @@ export function LeaderboardCard({ title, description, items, metric }: Props) {
                 className={`px-6 ${first ? "bg-[#fdf5e6]" : ""}`}
               >
                 <div
-                  className={`flex items-center gap-3 py-3 ${
+                  className={`flex items-center gap-3 py-4 ${
                     i < items.length - 1 ? "border-b border-neutral-200" : ""
                   }`}
                 >
@@ -76,7 +76,7 @@ export function LeaderboardCard({ title, description, items, metric }: Props) {
                     size={12}
                     src={t.profilePict || undefined}
                     initials={initials(t.name)}
-                    color="neutral"
+                    color="primary"
                   />
 
                   <div className="min-w-0 flex-1">
